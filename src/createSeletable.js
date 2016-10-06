@@ -5,7 +5,7 @@ const createSeletable = (WrappedComponent) => {
   class SelectableComponent extends React.Component {
 
     static contextTypes = {
-      onChange: PropTypes.func
+      actions: PropTypes.object
     }
 
     static propTypes = {
@@ -21,12 +21,17 @@ const createSeletable = (WrappedComponent) => {
     }
 
     render () {
-      let props = this.props
+      let props = this.props;
+      const actions = this.context.actions;
 
 			return (
         <div onClick={
-          () => {
-            this.context.onChange(this.props.id)
+          (e) => {
+            if(e.ctrlKey === true || e.metaKey === true){
+              actions.toggleClick(this.props.id);
+              return
+            }
+            actions.oneClick(this.props.id);
           }
         }>
           <WrappedComponent {...props} >

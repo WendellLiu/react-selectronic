@@ -4,7 +4,8 @@ class SelectableGroup extends React.Component{
   constructor(props){
     super(props);
 
-    this._onSelect = this._onSelect.bind(this);
+    this._toggleClick = this._toggleClick.bind(this);
+    this._oneClick = this._oneClick.bind(this)
   }
 
   static propTypes = {
@@ -23,18 +24,24 @@ class SelectableGroup extends React.Component{
   }
 
   static childContextTypes = {
-    onChange: PropTypes.func
+    actions: PropTypes.shape({
+      oneClick: PropTypes.func,
+      toggleClick: PropTypes.func
+    })
   }
 
   getChildContext(){
     return(
       {
-        onChange: this._onSelect
+        actions: {
+          oneClick: this._oneClick,
+          toggleClick: this._toggleClick
+        }
       }
     )
   }
 
-  _onSelect(id){
+  _toggleClick(id){
     let selectedList = [...this.props.selectedList];
 
     const index = selectedList.indexOf(id)
@@ -46,6 +53,18 @@ class SelectableGroup extends React.Component{
     }
 
     this.props.onChange(selectedList)
+  }
+
+  _onSelect(id){
+    let selectedList = [...this.props.selectedList];
+
+    selectedList.push(id)
+
+    this.props.onChange(selectedList)
+  }
+
+  _oneClick(id){
+    this.props.onChange([id])
   }
 
 
