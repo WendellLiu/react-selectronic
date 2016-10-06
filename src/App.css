@@ -1,3 +1,27 @@
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  display: flex;
+}
+
+.unselected{
+  width: 20px;
+  height: 20px;
+  background: rgb(111, 112, 103);
+
+}
+
 .selected {
-  background: rgb(205, 217, 85)
+  background: rgb(205, 217, 85);
+  width: 20px;
+  height: 20px;
+}
+
+.nonSelectable{
+  background: rgb(217, 85, 85);
+  width: 20px;
+  height: 20px;
 }

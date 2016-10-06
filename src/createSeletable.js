@@ -3,6 +3,11 @@ import React, { PropTypes } from 'react';
 // High Order Component
 const createSeletable = (WrappedComponent) => {
   class SelectableComponent extends React.Component {
+    constructor(props){
+      super(props);
+
+      this._handleClick = this._handleClick.bind(this)
+    }
 
     static contextTypes = {
       actions: PropTypes.object
@@ -20,20 +25,33 @@ const createSeletable = (WrappedComponent) => {
       selected: false
     }
 
-    render () {
-      let props = this.props;
+    _handleClick(e){
       const actions = this.context.actions;
 
+      e.preventDefault();
+
+      // shift key
+      if(e.shift === true){
+        actions.toggleClick(this.props.id);
+        return
+      }
+
+      // cmd key or ctrl key
+      if(e.ctrlKey === true || e.metaKey === true){
+        actions.toggleClick(this.props.id);
+        return
+      }
+
+      actions.oneClick(this.props.id);
+    }
+
+    render () {
+      let props = this.props;
+
 			return (
-        <div onClick={
-          (e) => {
-            if(e.ctrlKey === true || e.metaKey === true){
-              actions.toggleClick(this.props.id);
-              return
-            }
-            actions.oneClick(this.props.id);
-          }
-        }>
+        <div
+          onClick={this._handleClick}
+        >
           <WrappedComponent {...props} >
             {this.props.children}
           </WrappedComponent>

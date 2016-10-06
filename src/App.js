@@ -7,7 +7,6 @@ import './App.css'
 
 const Foo = ({ selected, id }) => (
   <div className={selected ? 'selected' : 'unselected'}>
-    {id}
   </div>
 )
 
@@ -36,13 +35,14 @@ class App extends Component {
         <SelectableGroup
           selectedList={this.state.selectedList}
           onChange={this._handleChange}
+          className="container"
         >
           {
             Array(20).fill(0).map((ele, index) => index).map((ele) => (
               <SelectableFoo id={ele} key={ele} />
             ))
           }
-          <div>I'm not selectable!</div>
+          <div className="nonSelectable"></div>
         </SelectableGroup>
         <div>selected: </div>
         <ul>
