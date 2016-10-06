@@ -38,7 +38,7 @@ class App extends Component {
           className="container"
         >
           {
-            Array(20).fill(0).map((ele, index) => index).map((ele) => (
+            Array(14).fill(0).map((ele, index) => index).map((ele) => (
               <SelectableFoo id={ele} key={ele} />
             ))
           }

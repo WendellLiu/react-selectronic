@@ -75,7 +75,6 @@ class SelectableGroup extends React.Component{
     }
 
     this.props.onChange(selectedList)
-
   }
 
 

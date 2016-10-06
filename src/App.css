@@ -1,27 +1,28 @@
 .App{
   display: flex;
-  flex-direction: column;
 }
 
 .container{
   display: flex;
+  width: 800px;
+  flex-wrap: wrap;
 }
 
 .unselected{
-  width: 20px;
-  height: 20px;
+  width: 160px;
+  height: 160px;
   background: rgb(111, 112, 103);
 
 }
 
 .selected {
   background: rgb(205, 217, 85);
-  width: 20px;
-  height: 20px;
+  width: 160px;
+  height: 160px;
 }
 
 .nonSelectable{
   background: rgb(217, 85, 85);
-  width: 20px;
-  height: 20px;
+  width: 160px;
+  height: 160px;
 }
