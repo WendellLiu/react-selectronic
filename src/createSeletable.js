@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 // High Order Component
 const createSeletable = (WrappedComponent) => {
