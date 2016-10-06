@@ -31,7 +31,7 @@ const createSeletable = (WrappedComponent) => {
       e.preventDefault();
 
       // shift key
-      if(e.shift === true){
+      if(e.shiftKey === true){
         actions.toggleClick(this.props.id);
         return
       }

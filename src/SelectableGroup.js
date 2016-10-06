@@ -64,7 +64,18 @@ class SelectableGroup extends React.Component{
   }
 
   _oneClick(id){
-    this.props.onChange([id])
+    let selectedList = [...this.props.selectedList];
+
+    const index = selectedList.indexOf(id)
+
+    if(index < 0){
+      selectedList = [id]
+    } else{
+      selectedList.splice(index, 1)
+    }
+
+    this.props.onChange(selectedList)
+
   }
 
 
