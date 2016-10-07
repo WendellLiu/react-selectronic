@@ -6,7 +6,8 @@ import SelectableGroup from './SelectableGroup'
 import './App.css'
 
 const Foo = ({ selected, id }) => (
-  <div className={selected ? 'selected' : 'unselected'}>
+  <div className={selected ? 'element selected' : 'element unselected'}>
+    {id}
   </div>
 )
 
@@ -42,16 +43,18 @@ class App extends Component {
               <SelectableFoo id={ele} key={ele} />
             ))
           }
-          <div className="nonSelectable"></div>
+          <div className="element nonSelectable" />
         </SelectableGroup>
-        <div>selected: </div>
-        <ul>
-        {
-          this.state.selectedList.map((ele, index) => (
-            <li key={index}>{ele}</li>
-          ))
-        }
-        </ul>
+        <div className="result">
+          <div>selected: </div>
+          <ul>
+          {
+            this.state.selectedList.map((ele, index) => (
+              <li key={index}>{ele}</li>
+            ))
+          }
+          </ul>
+        </div>
       </div>
     );
   }

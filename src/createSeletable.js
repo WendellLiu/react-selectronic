@@ -63,9 +63,7 @@ const createSeletable = (WrappedComponent) => {
         <div
           onClick={this._handleClick}
         >
-          <WrappedComponent {...props} >
-            {this.props.children}
-          </WrappedComponent>
+          <WrappedComponent {...props} />
         </div>
 
       )

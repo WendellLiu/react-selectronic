@@ -6,3 +6,8 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
+// import SelectableGroup from './SelectableGroup';
+// import createSeletable from './createSeletable';
+//
+// export default { SelectableGroup, createSeletable}

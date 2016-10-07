@@ -8,25 +8,35 @@
   flex-wrap: wrap;
 }
 
-.unselected{
+.element{
   width: 160px;
   height: 160px;
-  background: rgb(111, 112, 103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  color: #bebebe;
+}
 
+.unselected{
+  background: rgb(111, 112, 103);
 }
 
 .selected {
   background: rgb(205, 217, 85);
-  width: 160px;
-  height: 160px;
+  color: #000;
 }
 
 .unselected:hover{
   background: rgb(205, 207, 191);
+  color: #000;
+
 }
 
 .nonSelectable{
   background: rgb(217, 85, 85);
-  width: 160px;
-  height: 160px;
+}
+
+.result{
+  margin: 0 10%;
 }
