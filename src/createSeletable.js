@@ -17,7 +17,11 @@ const createSeletable = (WrappedComponent) => {
     }
 
     static contextTypes = {
-      actions: PropTypes.object
+      actions: PropTypes.shape({
+        oneClick: PropTypes.func,
+        toggleClick: PropTypes.func,
+        rangeSelect: PropTypes.func
+      })
     }
 
     static propTypes = {
@@ -39,7 +43,7 @@ const createSeletable = (WrappedComponent) => {
 
       // shift key
       if(e.shiftKey === true){
-        actions.toggleClick(this.props.id);
+        actions.rangeSelect(this.props.id);
         return
       }
 

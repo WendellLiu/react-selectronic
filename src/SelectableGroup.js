@@ -1,11 +1,22 @@
 import React, { PropTypes } from 'react';
 
+import {
+  listCompare
+} from './utils'
+
 class SelectableGroup extends React.Component{
   constructor(props){
     super(props);
 
     this._toggleClick = this._toggleClick.bind(this);
-    this._oneClick = this._oneClick.bind(this)
+    this._oneClick = this._oneClick.bind(this);
+    this._rangeSelect = this._rangeSelect.bind(this);
+
+    this.state = {
+      idList: React.Children.map(props.children, (child) => (
+        child.props.id
+      ))
+    }
   }
 
   static propTypes = {
@@ -26,7 +37,8 @@ class SelectableGroup extends React.Component{
   static childContextTypes = {
     actions: PropTypes.shape({
       oneClick: PropTypes.func,
-      toggleClick: PropTypes.func
+      toggleClick: PropTypes.func,
+      rangeSelect: PropTypes.func
     })
   }
 
@@ -35,7 +47,8 @@ class SelectableGroup extends React.Component{
       {
         actions: {
           oneClick: this._oneClick,
-          toggleClick: this._toggleClick
+          toggleClick: this._toggleClick,
+          rangeSelect: this._rangeSelect
         }
       }
     )
@@ -44,43 +57,43 @@ class SelectableGroup extends React.Component{
   _toggleClick(id){
     let selectedList = [...this.props.selectedList];
 
-    const index = selectedList.indexOf(id)
+    const index = selectedList.indexOf(id);
 
     if(index < 0){
-      selectedList.push(id)
+      selectedList.push(id);
     } else{
-      selectedList.splice(index, 1)
+      selectedList.splice(index, 1);
     }
 
-    this.props.onChange(selectedList)
-  }
-
-  _onSelect(id){
-    let selectedList = [...this.props.selectedList];
-
-    selectedList.push(id)
-
-    this.props.onChange(selectedList)
+    this.props.onChange(selectedList);
   }
 
   _oneClick(id){
     let selectedList = [...this.props.selectedList];
 
-    const index = selectedList.indexOf(id)
+    const index = selectedList.indexOf(id);
 
     // more one element were selected
     if(selectedList.length > 1){
-      selectedList = [id]
+      selectedList = [id];
     } else{
 
       if(index < 0){
-        selectedList = [id]
+        selectedList = [id];
       } else{
-        selectedList.splice(index, 1)
+        selectedList.splice(index, 1);
       }
     }
 
     this.props.onChange(selectedList)
+  }
+
+  _rangeSelect(id){
+    let selectedList = [...this.props.selectedList];
+
+    const allCompare = listCompare(this.state.idList)
+
+    this.props.onChange(allCompare(selectedList, id))
   }
 
 
