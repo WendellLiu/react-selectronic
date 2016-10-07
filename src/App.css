@@ -21,6 +21,10 @@
   height: 160px;
 }
 
+.unselected:hover{
+  background: rgb(205, 207, 191);
+}
+
 .nonSelectable{
   background: rgb(217, 85, 85);
   width: 160px;

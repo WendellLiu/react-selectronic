@@ -13,12 +13,16 @@ export const listCompare = (parentList) => {
     if(targetIndex < 0) throw Error('target is not in the parentList');
 
 
-    const indexList = childList.map((ele) => (
+    let indexList = childList.map((ele) => (
       parentList.indexOf(ele)
     ))
 
-    const startIndex = Math.min(indexList);
+    indexList = indexList.concat(targetIndex)
 
-    return parentList.slice(startIndex, targetIndex+1);
+    const startIndex = Math.min(...indexList);
+    const endIndex = Math.max(...indexList) + 1;
+
+
+    return parentList.slice(startIndex, endIndex);
   }
 }

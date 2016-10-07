@@ -21,13 +21,23 @@ describe('listCompare test', () => {
     }).toThrow();
   });
 
-  it('return right result in childList length is 1', () => {
+  it('return right result in childList length is 1 (forward)', () => {
     const expected = listCompare([2,3,4,5,6])([3], 6);
     expect(expected).toEqual([3,4,5,6]);
   })
 
-  it('return right result in childList length is more than 1', () => {
+  it('return right result in childList length is more than 1 (forward)', () => {
     const expected = listCompare([2,3,4,5,6])([2,3], 6);
     expect(expected).toEqual([2,3,4,5,6]);
+  })
+
+  it('return right result in childList length is 1 (reverse)', () => {
+    const expected = listCompare([2,3,4,5,6])([5], 2);
+    expect(expected).toEqual([2,3,4,5]);
+  })
+
+  it('return right result in childList length is more than 1 (reverse)', () => {
+    const expected = listCompare([2,3,4,5,6])([5,6], 3);
+    expect(expected).toEqual([3,4,5,6]);
   })
 })
