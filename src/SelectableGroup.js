@@ -68,10 +68,16 @@ class SelectableGroup extends React.Component{
 
     const index = selectedList.indexOf(id)
 
-    if(index < 0){
+    // more one element were selected
+    if(selectedList.length > 1){
       selectedList = [id]
     } else{
-      selectedList.splice(index, 1)
+
+      if(index < 0){
+        selectedList = [id]
+      } else{
+        selectedList.splice(index, 1)
+      }
     }
 
     this.props.onChange(selectedList)

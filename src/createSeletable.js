@@ -9,6 +9,13 @@ const createSeletable = (WrappedComponent) => {
       this._handleClick = this._handleClick.bind(this)
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+      // don't update when selected didn't change
+      if(nextProps.selected === this.props.selected) return false;
+
+      return true;
+    }
+
     static contextTypes = {
       actions: PropTypes.object
     }
