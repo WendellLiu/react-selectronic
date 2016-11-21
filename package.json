@@ -1,18 +1,36 @@
 {
   "name": "react-selectronic",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-scripts": "0.6.1"
-  },
-  "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "build": "webpack --config webpack-config-prod.js"
+  },
+  "repository": {
+    "url": "git@github.com:WendellLiu/react-selectronic.git",
+    "type": "git"
+  },
+  "author": "Wendell Liu <cuk.bas@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.26.0",
+    "node-sass": "^3.13.0",
+    "react": "^15.4.0",
+    "react-css-modules": "^4.0.3",
+    "react-dom": "^15.4.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dashboard": "^0.2.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "peerDependencies": {
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   }
 }

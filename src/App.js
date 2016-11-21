@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 
-import createSeletable from './createSeletable'
-import SelectableGroup from './SelectableGroup'
+import createSeletable from './createSeletable';
+import SelectableGroup from './SelectableGroup';
 
-import './App.css'
-
-const Foo = ({ selected, id }) => (
-  <div className={selected ? 'element selected' : 'element unselected'}>
-    {id}
-  </div>
-)
+import Foo from './Foo';
+import styles from './App.scss';
 
 const SelectableFoo = createSeletable(Foo)
 
@@ -36,16 +32,16 @@ class App extends Component {
         <SelectableGroup
           selectedList={this.state.selectedList}
           onChange={this._handleChange}
-          className="container"
+          styleName="container"
         >
           {
             Array(14).fill(0).map((ele, index) => index).map((ele) => (
               <SelectableFoo id={ele} key={ele} />
             ))
           }
-          <div className="element nonSelectable" />
+          <div styleName="nonSelectable" />
         </SelectableGroup>
-        <div className="result">
+        <div styleName="result">
           <div>selected: </div>
           <ul>
           {
@@ -60,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default new CSSModules(App, styles)  ;

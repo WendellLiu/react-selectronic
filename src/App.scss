@@ -19,10 +19,12 @@
 }
 
 .unselected{
+  composes: element;
   background: rgb(111, 112, 103);
 }
 
 .selected {
+  composes: element;
   background: rgb(205, 217, 85);
   color: #000;
 }
@@ -34,6 +36,7 @@
 }
 
 .nonSelectable{
+  composes: element;
   background: rgb(217, 85, 85);
 }
 
