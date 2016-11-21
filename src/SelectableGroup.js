@@ -55,7 +55,7 @@ class SelectableGroup extends React.Component{
   }
 
   _toggleClick(id){
-    let selectedList = [...this.props.selectedList];
+    const selectedList = [...this.props.selectedList];
 
     const index = selectedList.indexOf(id);
 
@@ -89,7 +89,7 @@ class SelectableGroup extends React.Component{
   }
 
   _rangeSelect(id){
-    let selectedList = [...this.props.selectedList];
+    const selectedList = [...this.props.selectedList];
 
     const allCompare = listCompare(this.state.idList)
 
@@ -98,12 +98,12 @@ class SelectableGroup extends React.Component{
 
 
   render(){
-    let { Component, children, selectedList,  ...rest } = this.props
+    const { Component, children, selectedList,  ...rest } = this.props
 
-    children = React.Children.map(children, (child) => {
+    const newChildren = React.Children.map(children, (child) => {
 
       // check if child have selected in props
-      if( !(child.props.selected === undefined) ){
+      if( typeof child.type === 'function' && child.type.name === 'SelectableComponent' ){
         // clone a props
         let props = {...child.props}
 
@@ -125,7 +125,7 @@ class SelectableGroup extends React.Component{
       <Component
         {...rest}
       >
-        {children}
+        {newChildren}
       </Component>
     )
   }

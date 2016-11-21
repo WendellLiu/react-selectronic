@@ -10,7 +10,7 @@ const createSeletable = (WrappedComponent) => {
     }
 
     shouldComponentUpdate(nextProps, nextState){
-      // don't update when selected didn't change
+      // don't update if selected prop didn't change
       if(nextProps.selected === this.props.selected) return false;
 
       return true;
