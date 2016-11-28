@@ -1,10 +1,10 @@
 {
   "name": "react-selectronic",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --config webpack-config-prod.js"
+    "build": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "url": "git@github.com:WendellLiu/react-selectronic.git",
