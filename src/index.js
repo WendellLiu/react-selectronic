@@ -8,7 +8,5 @@
 // );
 
 
-import SelectableGroup from './SelectableGroup';
-import createSeletable from './createSeletable';
-
-export default { SelectableGroup, createSeletable }
+export SelectableGroup from './SelectableGroup';
+export createSeletable from './createSeletable';
