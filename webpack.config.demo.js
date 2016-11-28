@@ -2,26 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: [
-    './src/index'
+    './demo/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
-    library: 'react-selectronic',
-    libraryTarget: 'umd'
   },
-  externals: [
-    {
-      react: {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react'
-      }
-    }
-  ],
   plugins: [
     new webpack.DefinePlugin({
       'process.env':{

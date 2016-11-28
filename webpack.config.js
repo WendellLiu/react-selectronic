@@ -8,7 +8,8 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
-    './src/index.js'
+    'webpack/hot/only-dev-server',
+    './demo/index.js'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -22,12 +23,9 @@ module.exports = {
   module: {
     loaders: [
       {
-      test: /\.js$/,
-      loader: 'babel',
-      query: {
-          presets: ['es2015', 'react', 'stage-0']
-      },
-      include: path.join(__dirname, 'src')
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,

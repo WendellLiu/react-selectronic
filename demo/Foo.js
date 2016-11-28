@@ -3,8 +3,11 @@ import CSSModules from 'react-css-modules';
 import styles from './App.scss';
 
 
-const Foo = ({ selected, id }) => (
-  <div styleName={selected ? 'selected' : 'unselected'}>
+const Foo = ({ selected, id, onClick }) => (
+  <div
+    styleName={selected ? 'selected' : 'unselected'}
+    onClick={onClick}
+  >
     {id}
   </div>
 );

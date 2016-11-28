@@ -58,13 +58,19 @@ const createSeletable = (WrappedComponent) => {
 
     render () {
       let props = this.props;
+      props = {
+        ...props,
+        onClick: (e) => {
+          this._handleClick(e);
+          if (this.props.onClick) {
+            this.props.onClick(e);
+          }
+        },
+      }
 
 			return (
-        <div
-          onClick={this._handleClick}
-        >
+
           <WrappedComponent {...props} />
-        </div>
 
       )
 		}

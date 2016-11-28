@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 
-import createSeletable from './createSeletable';
-import SelectableGroup from './SelectableGroup';
+import {
+  createSeletable,
+  SelectableGroup,
+} from '../src';
 
 import Foo from './Foo';
 import styles from './App.scss';
