@@ -18,7 +18,7 @@ class App extends Component {
     this._handleChange = this._handleChange.bind(this)
 
     this.state = {
-      selectedList: []
+      selectedList: [],
     }
   }
 
@@ -38,9 +38,10 @@ class App extends Component {
         >
           {
             Array(14).fill(0).map((ele, index) => index).map((ele) => (
-              <SelectableFoo id={ele} key={ele} />
+              <SelectableFoo uid={ele} key={ele} />
             ))
           }
+          <div styleName="nonSelectable" />
           <div styleName="nonSelectable" />
         </SelectableGroup>
         <div styleName="result">

@@ -16,8 +16,11 @@ import {
   CreateSeletable
 } from 'react-selectronic';
 
-const Foo = ({ selected, id }) => (
-  <div className={selected ? 'selected' : 'unselected'}>
+const Foo = ({ selected, id, onClick }) => (
+  <div
+    className={selected ? 'selected' : 'unselected'}
+    onClick={onClick}
+  >
   </div>
 )
 
@@ -30,7 +33,7 @@ const SelectableFoo = createSeletable(Foo)
 >
   {
     Array(14).fill(0).map((ele, index) => index).map((ele) => (
-      <SelectableFoo id={ele} key={ele} />
+      <SelectableFoo uid={ele} key={ele} /> // uid is a must-given property!
     ))
   }
   <div className="nonSelectable" /> // you can insert any component not selectable
@@ -46,3 +49,6 @@ a group component containing
 
 ### CreateSeletable
 #### Description
+
+**Caution:**
+the wrapped component(like Foo above) **must** take `onClick` property to make select-function work.

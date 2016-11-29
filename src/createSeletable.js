@@ -11,7 +11,9 @@ const createSeletable = (WrappedComponent) => {
 
     shouldComponentUpdate(nextProps, nextState){
       // don't update if selected prop didn't change
-      if(nextProps.selected === this.props.selected) return false;
+      if(nextProps.selected === this.props.selected) {
+        return false;
+      }
 
       return true;
     }
@@ -20,20 +22,20 @@ const createSeletable = (WrappedComponent) => {
       actions: PropTypes.shape({
         oneClick: PropTypes.func,
         toggleClick: PropTypes.func,
-        rangeSelect: PropTypes.func
+        rangeSelect: PropTypes.func,
       })
     }
 
     static propTypes = {
-      id: PropTypes.oneOfType([
+      uid: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
       ]).isRequired,
-      selected: PropTypes.bool.isRequired
+      selected: PropTypes.bool.isRequired,
     }
 
     static defaultProps = {
-      selected: false
+      selected: false,
     }
 
     _handleClick(e){
@@ -43,35 +45,32 @@ const createSeletable = (WrappedComponent) => {
 
       // shift key
       if(e.shiftKey === true){
-        actions.rangeSelect(this.props.id);
+        actions.rangeSelect(this.props.uid);
         return
       }
 
       // cmd key or ctrl key
       if(e.ctrlKey === true || e.metaKey === true){
-        actions.toggleClick(this.props.id);
+        actions.toggleClick(this.props.uid);
         return
       }
 
-      actions.oneClick(this.props.id);
+      actions.oneClick(this.props.uid);
     }
 
     render () {
-      let props = this.props;
-      props = {
-        ...props,
+      const props = {
+        ...this.props,
         onClick: (e) => {
           this._handleClick(e);
-          if (this.props.onClick) {
+          if (this.props.onClick && typeof this.props.onClick === 'function') {
             this.props.onClick(e);
           }
         },
-      }
+      };
 
 			return (
-
           <WrappedComponent {...props} />
-
       )
 		}
   }

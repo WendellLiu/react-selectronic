@@ -13,10 +13,10 @@ class SelectableGroup extends React.Component{
     this._rangeSelect = this._rangeSelect.bind(this);
 
     this.state = {
-      idList: React.Children.map(props.children, (child) => (
-        child.props.id
-      ))
-    }
+      uidList: React.Children.map(props.children, (child) => (
+        child.props.uid
+      )),
+    };
   }
 
   static propTypes = {
@@ -25,20 +25,20 @@ class SelectableGroup extends React.Component{
     Component: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
-      PropTypes.object
+      PropTypes.object,
     ])
   }
 
   static defaultProps = {
     Component: 'div',
-    selectedList: []
+    selectedList: [],
   }
 
   static childContextTypes = {
     actions: PropTypes.shape({
       oneClick: PropTypes.func,
       toggleClick: PropTypes.func,
-      rangeSelect: PropTypes.func
+      rangeSelect: PropTypes.func,
     })
   }
 
@@ -48,19 +48,19 @@ class SelectableGroup extends React.Component{
         actions: {
           oneClick: this._oneClick,
           toggleClick: this._toggleClick,
-          rangeSelect: this._rangeSelect
+          rangeSelect: this._rangeSelect,
         }
       }
     )
   }
 
-  _toggleClick(id){
+  _toggleClick(uid){
     const selectedList = [...this.props.selectedList];
 
-    const index = selectedList.indexOf(id);
+    const index = selectedList.indexOf(uid);
 
     if(index < 0){
-      selectedList.push(id);
+      selectedList.push(uid);
     } else{
       selectedList.splice(index, 1);
     }
@@ -68,18 +68,18 @@ class SelectableGroup extends React.Component{
     this.props.onChange(selectedList);
   }
 
-  _oneClick(id){
+  _oneClick(uid){
     let selectedList = [...this.props.selectedList];
 
-    const index = selectedList.indexOf(id);
+    const index = selectedList.indexOf(uid);
 
     // more one element were selected
     if(selectedList.length > 1){
-      selectedList = [id];
+      selectedList = [uid];
     } else{
 
       if(index < 0){
-        selectedList = [id];
+        selectedList = [uid];
       } else{
         selectedList.splice(index, 1);
       }
@@ -88,12 +88,12 @@ class SelectableGroup extends React.Component{
     this.props.onChange(selectedList)
   }
 
-  _rangeSelect(id){
+  _rangeSelect(uid){
     const selectedList = [...this.props.selectedList];
 
-    const allCompare = listCompare(this.state.idList)
+    const allCompare = listCompare(this.state.uidList)
 
-    this.props.onChange(allCompare(selectedList, id))
+    this.props.onChange(allCompare(selectedList, uid))
   }
 
 
@@ -108,7 +108,7 @@ class SelectableGroup extends React.Component{
         let props = {...child.props}
 
         // replace selected for new selectedList
-        props.selected = (selectedList.indexOf(child.props.id) >= 0);
+        props.selected = (selectedList.indexOf(child.props.uid) >= 0);
 
         // clone a children
         const { children } = child;
