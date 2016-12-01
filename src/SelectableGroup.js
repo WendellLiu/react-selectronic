@@ -100,6 +100,7 @@ class SelectableGroup extends React.Component{
 
   _rangeSelect(uid){
     const selectedList = [...this.props.selectedList];
+    if (selectedList.length === 0) return;
 
     const allCompare = listCompare(this.state.uidList)
 

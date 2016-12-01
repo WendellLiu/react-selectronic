@@ -1,6 +1,6 @@
 {
   "name": "react-selectronic",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "node server.js",
