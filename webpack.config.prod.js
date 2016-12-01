@@ -33,9 +33,6 @@ module.exports = {
       compress: {
         warnings: false
       },
-      mangle: {
-       except: ['SelectableComponent']
-      }
     })
   ],
   module: {

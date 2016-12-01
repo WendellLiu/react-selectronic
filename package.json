@@ -1,13 +1,13 @@
 {
   "name": "react-selectronic",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "node server.js",
     "build": "webpack --config webpack.config.prod.js",
     "buildDemo": "webpack --config webpack.config.demo.js",
     "prepublish": "npm run build",
-    "cleanBuild": "rm -r -f dist/"
+    "cleanBuild": "rm -rf dist/"
   },
   "repository": {
     "url": "git@github.com:WendellLiu/react-selectronic.git",

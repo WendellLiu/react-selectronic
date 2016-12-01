@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 
+import createSeletable from './createSeletable';
+
 import {
   listCompare
 } from './utils'
@@ -114,7 +116,7 @@ class SelectableGroup extends React.Component{
     const newChildren = React.Children.map(children, (child) => {
 
       // check if child have selected in props
-      if( typeof child.type === 'function' && child.type.name === 'SelectableComponent' ){
+      if( typeof child.type === 'function' && child.type.name === createSeletable().name ){
         // clone a props and replace selected for new selectedList
         const props = {
           ...child.props,
