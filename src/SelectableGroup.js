@@ -114,11 +114,11 @@ class SelectableGroup extends React.Component{
 
       // check if child have selected in props
       if( typeof child.type === 'function' && child.type.name === 'SelectableComponent' ){
-        // clone a props
-        let props = {...child.props}
-
-        // replace selected for new selectedList
-        props.selected = (selectedList.indexOf(child.props.uid) >= 0);
+        // clone a props and replace selected for new selectedList
+        const props = {
+          ...child.props,
+          selected: (selectedList.indexOf(child.props.uid) >= 0),
+        }
 
         // clone a children
         const { children } = child;
