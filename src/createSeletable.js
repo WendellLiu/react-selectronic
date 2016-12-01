@@ -2,20 +2,11 @@ import React, { PropTypes } from 'react';
 
 // High Order Component
 const createSeletable = (WrappedComponent) => {
-  class SelectableComponent extends React.Component {
+  class SelectableComponent extends React.PureComponent {
     constructor(props){
       super(props);
 
       this._handleClick = this._handleClick.bind(this)
-    }
-
-    shouldComponentUpdate(nextProps, nextState){
-      // don't update if selected prop didn't change
-      if(nextProps.selected === this.props.selected) {
-        return false;
-      }
-
-      return true;
     }
 
     static contextTypes = {
