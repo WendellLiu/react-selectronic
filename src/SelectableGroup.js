@@ -19,6 +19,16 @@ class SelectableGroup extends React.Component{
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const uidList = React.Children.map(nextProps.children, (child) => (
+      child.props.uid
+    ));
+
+    this.setState({
+      uidList,
+    });
+  }
+
   static propTypes = {
     onChange: PropTypes.func,
     selectedList: PropTypes.array,
