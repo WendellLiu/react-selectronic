@@ -6,3 +6,4 @@ server.js
 webpack*.js
 example
 src
+yarn.lock
