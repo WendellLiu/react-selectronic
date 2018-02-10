@@ -2,8 +2,9 @@ node_modules
 npm-debug.log
 .DS_Store
 index.html
-server.js
-webpack*.js
-example
 src
 yarn.lock
+.eslint*
+rollup*
+.editorconfig
+.babelrc
