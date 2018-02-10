@@ -34,7 +34,6 @@
     "lint-staged": "^6.1.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.x",
-    "react-css-modules": "^4.0.3",
     "react-dom": "^15.6.x",
     "rollup": "^0.55.4",
     "rollup-plugin-postcss": "^1.2.8",
