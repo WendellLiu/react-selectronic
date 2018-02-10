@@ -1,2 +1,7 @@
-export SelectableGroup from './SelectableGroup';
-export createSeletable from './createSeletable';
+import SelectableGroup from './SelectableGroup';
+import createSeletable from './createSeletable';
+
+export default {
+  SelectableGroup,
+  createSeletable,
+};
