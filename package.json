@@ -6,10 +6,10 @@
   "browser": "dist/bundle.umd.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rollup -c",
+    "build": "rollup --config config/rollup.prod.config.js",
     "lint": "eslint ./",
     "precommit": "lint-staged",
-    "buildDemo": "webpack --config webpack.config.demo.js",
+    "buildDemo": "node script/buildGhpage.js",
     "cleanBuild": "rm -rf dist/"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "^7.6.1",
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "prop-types": "^15.5.10",
@@ -47,7 +48,6 @@
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react": "^15.0.0 || ^16.0.0"
   }
 }
