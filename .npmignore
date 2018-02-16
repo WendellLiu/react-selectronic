@@ -9,3 +9,4 @@ rollup*
 .editorconfig
 .babelrc
 yarn-error.log
+public

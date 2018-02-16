@@ -6,10 +6,10 @@
   "browser": "dist/bundle.umd.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rollup --config config/rollup.prod.config.js",
+    "build": "rollup --config config/rollup.prod.config.js --environment NODE_ENV:production",
     "lint": "eslint ./",
     "precommit": "lint-staged",
-    "buildDemo": "node script/buildGhpage.js",
+    "buildDemo": "rollup --environment NODE_ENV:production --config config/rollup.demo.config.js",
     "cleanBuild": "rm -rf dist/"
   },
   "repository": {
@@ -39,12 +39,16 @@
     "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.x",
-    "react-dom": "^15.6.x",
+    "prop-types": "^15.6.x",
+    "react": "^16.2.x",
+    "react-dom": "^16.2.x",
     "rollup": "^0.55.4",
     "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
     "rollup-plugin-postcss": "^1.2.8",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^3.0.0",
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {

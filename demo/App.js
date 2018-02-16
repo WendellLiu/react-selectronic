@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import {
   createSeletable,
@@ -9,7 +9,7 @@ import Foo from './Foo';
 
 const SelectableFoo = createSeletable(Foo);
 
-class App extends PureComponent {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
