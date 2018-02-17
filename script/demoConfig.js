@@ -3,6 +3,8 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
 const replace = require('rollup-plugin-replace');
+const builtins = require('rollup-plugin-node-builtins');
+const globals = require('rollup-plugin-node-globals');
 
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -17,9 +19,17 @@ const inputOptions = {
     resolve({
       jsnext: true,
       main: true,
+      preferBuiltins: true,
     }),
-    commonjs(),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react/index.js': ['Component', 'PureComponent', 'Children', 'createElement'],
+      },
+    }),
     replace({ 'process.env.NODE_ENV': JSON.stringify(NODE_ENV) }),
+    builtins(),
+    globals(),
     isProduction && uglify(),
   ],
 };

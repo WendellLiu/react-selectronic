@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import {
   createSeletable,
@@ -8,6 +9,10 @@ import {
 import Foo from './Foo';
 
 const SelectableFoo = createSeletable(Foo);
+const Container = styled.div`
+  display: flex;
+  backgrout: black;
+`;
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -28,7 +33,7 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      <div
+      <Container
         style={{
           display: 'flex',
         }}
@@ -60,7 +65,7 @@ class App extends React.PureComponent {
             }
           </ul>
         </div>
-      </div>
+      </Container>
     );
   }
 }

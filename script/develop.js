@@ -38,12 +38,15 @@ async function main() {
         break;
       case 'ERROR':
         console.log('ERROR');
+        console.log(event);
         break;
       case 'FATAL':
         console.log('FATAL');
+        console.log(event);
         break;
       default:
         console.log('something else');
+        console.log(event);
         break;
     }
   });
