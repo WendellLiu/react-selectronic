@@ -1,7 +1,6 @@
 # react-selectronic
 
-![Build Status](https://circleci.com/gh/WendellLiu/react-selectronic
-.png?circle-token=6cb81d93caa745b04d31d9dbf5ff73e47a74b7ea)
+![Build Status](https://circleci.com/gh/WendellLiu/react-selectronic.png?circle-token=6cb81d93caa745b04d31d9dbf5ff73e47a74b7ea)
 
 
 inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](https://github.com/unclecheese/react-selectable)
