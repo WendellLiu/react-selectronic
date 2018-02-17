@@ -15,4 +15,4 @@ dist
 npm-debug.log
 yarn-error.log
 webpack*.js
-public
+static

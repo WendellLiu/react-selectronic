@@ -28,11 +28,19 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      <div className="App">
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
         <SelectableGroup
           selectedList={this.state.selectedList}
           onChange={this._handleChange}
-          className="container"
+          style={{
+            display: 'flex',
+            width: '800px',
+            flexQrap: 'wrap',
+          }}
         >
           {
             Array(14).fill(0).map((ele, index) => index).map(ele => (

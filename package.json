@@ -5,12 +5,11 @@
   "module": "dist/bundle.esm.js",
   "browser": "dist/bundle.umd.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node script/develop.js",
+    "buildDemo": "NODE_ENV=production node script/buildDemo.js",
     "build": "rollup --config config/rollup.prod.config.js --environment NODE_ENV:production",
     "lint": "eslint ./",
-    "precommit": "lint-staged",
-    "buildDemo": "rollup --environment NODE_ENV:production --config config/rollup.demo.config.js",
-    "cleanBuild": "rm -rf dist/"
+    "precommit": "lint-staged"
   },
   "repository": {
     "url": "git@github.com:WendellLiu/react-selectronic.git",
@@ -49,6 +48,7 @@
     "rollup-plugin-postcss": "^1.2.8",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
+    "serve": "^6.4.9",
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {
