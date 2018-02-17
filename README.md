@@ -52,3 +52,10 @@ a group component containing
 
 **Caution:**
 the wrapped component(like Foo above) **must** take `onClick` property to make select-function work.
+
+## Development
+```sh
+yarn start
+```
+
+the demo page will served on port **5000**
