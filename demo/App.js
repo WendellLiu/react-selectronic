@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
+import React from 'react';
 
 import {
   createSeletable,
@@ -7,56 +6,66 @@ import {
 } from '../src';
 
 import Foo from './Foo';
-import styles from './App.scss';
 
-const SelectableFoo = createSeletable(Foo)
+import {
+  Container,
+  NonSelectable,
+  Result,
+} from './components';
 
-class App extends Component {
-  constructor(props){
-    super(props)
+const SelectableFoo = createSeletable(Foo);
 
-    this._handleChange = this._handleChange.bind(this)
+
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this._handleChange = this._handleChange.bind(this);
 
     this.state = {
       selectedList: [],
-    }
+    };
   }
 
-  _handleChange(selectedList){
+  _handleChange(selectedList) {
     this.setState({
-      selectedList
-    })
+      selectedList,
+    });
   }
 
   render() {
     return (
-      <div className="App">
+      <Container>
         <SelectableGroup
           selectedList={this.state.selectedList}
           onChange={this._handleChange}
-          styleName="container"
+          style={{
+            display: 'flex',
+            width: '800px',
+            flexWrap: 'wrap',
+          }}
         >
           {
-            Array(14).fill(0).map((ele, index) => index).map((ele) => (
+            Array(14).fill(0).map((ele, index) => index).map(ele => (
               <SelectableFoo uid={ele} key={ele} />
             ))
           }
-          <div styleName="nonSelectable" />
-          <div styleName="nonSelectable" />
+          <NonSelectable />
+          <NonSelectable />
         </SelectableGroup>
-        <div styleName="result">
+        <Result>
           <div>selected: </div>
           <ul>
-          {
-            this.state.selectedList.map((ele, index) => (
-              <li key={index}>{ele}</li>
-            ))
-          }
+            {
+              this.state.selectedList.map(ele => (
+                <li key={ele}>{ele}</li>
+              ))
+            }
           </ul>
-        </div>
-      </div>
+        </Result>
+      </Container>
     );
   }
 }
 
-export default new CSSModules(App, styles)  ;
+export default App;

@@ -1,15 +1,26 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './App.scss';
+import PropTypes from 'prop-types';
 
+import {
+  Selectable,
+} from './components';
 
 const Foo = ({ selected, uid, onClick }) => (
-  <div
-    styleName={selected ? 'selected' : 'unselected'}
+  <Selectable
+    selected={selected}
     onClick={onClick}
   >
     {uid}
-  </div>
+  </Selectable>
 );
 
-export default new CSSModules(Foo, styles);
+Foo.propTypes = {
+  selected: PropTypes.bool,
+  uid: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  onClick: PropTypes.func,
+};
+
+export default Foo;
