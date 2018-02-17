@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  Selectable,
+} from './components';
+
 const Foo = ({ selected, uid, onClick }) => (
-  <div
-    className={selected ? 'selected' : 'unselected'}
+  <Selectable
+    selected={selected}
     onClick={onClick}
   >
     {uid}
-  </div>
+  </Selectable>
 );
 
 Foo.propTypes = {

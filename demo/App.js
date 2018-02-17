@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import {
   createSeletable,
@@ -8,11 +7,14 @@ import {
 
 import Foo from './Foo';
 
+import {
+  Container,
+  NonSelectable,
+  Result,
+} from './components';
+
 const SelectableFoo = createSeletable(Foo);
-const Container = styled.div`
-  display: flex;
-  backgrout: black;
-`;
+
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -33,18 +35,14 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      <Container
-        style={{
-          display: 'flex',
-        }}
-      >
+      <Container>
         <SelectableGroup
           selectedList={this.state.selectedList}
           onChange={this._handleChange}
           style={{
             display: 'flex',
             width: '800px',
-            flexQrap: 'wrap',
+            flexWrap: 'wrap',
           }}
         >
           {
@@ -52,10 +50,10 @@ class App extends React.PureComponent {
               <SelectableFoo uid={ele} key={ele} />
             ))
           }
-          <div className="nonSelectable" />
-          <div className="nonSelectable" />
+          <NonSelectable />
+          <NonSelectable />
         </SelectableGroup>
-        <div className="result">
+        <Result>
           <div>selected: </div>
           <ul>
             {
@@ -64,7 +62,7 @@ class App extends React.PureComponent {
               ))
             }
           </ul>
-        </div>
+        </Result>
       </Container>
     );
   }
