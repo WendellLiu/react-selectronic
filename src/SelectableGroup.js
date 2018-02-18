@@ -6,6 +6,10 @@ import {
   removeElement,
 } from './utils';
 
+import {
+  ACTION_NAME,
+} from './constants';
+
 class SelectableGroup extends React.Component {
   static propTypes = {
     children: PropTypes.node,
@@ -25,7 +29,7 @@ class SelectableGroup extends React.Component {
   }
 
   static childContextTypes = {
-    actions: PropTypes.shape({
+    [ACTION_NAME]: PropTypes.shape({
       oneClick: PropTypes.func,
       toggleClick: PropTypes.func,
       rangeSelect: PropTypes.func,
@@ -35,7 +39,7 @@ class SelectableGroup extends React.Component {
   getChildContext() {
     return (
       {
-        actions: {
+        [ACTION_NAME]: {
           oneClick: this._oneClick,
           toggleClick: this._toggleClick,
           rangeSelect: this._rangeSelect,

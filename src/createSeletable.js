@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  ACTION_NAME,
+} from './constants';
+
 // High Order Component
 const createSeletable = (WrappedComponent) => {
   class SelectableComponent extends React.PureComponent {
     static contextTypes = {
-      actions: PropTypes.shape({
+      [ACTION_NAME]: PropTypes.shape({
         oneClick: PropTypes.func,
         toggleClick: PropTypes.func,
         rangeSelect: PropTypes.func,
@@ -22,7 +26,7 @@ const createSeletable = (WrappedComponent) => {
     }
 
     _handleClick = (e) => {
-      const actions = this.context.actions;
+      const actions = this.context[ACTION_NAME];
 
       e.preventDefault();
 
