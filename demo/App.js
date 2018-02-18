@@ -15,6 +15,12 @@ import {
 
 const SelectableFoo = createSeletable(Foo);
 
+const elements = Array(14).fill(0).map((_, index) => (
+  {
+    id: index,
+  }
+));
+
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -38,6 +44,7 @@ class App extends React.PureComponent {
       <Container>
         <SelectableGroup
           selectedList={this.state.selectedList}
+          uidList={elements.map(e => e.id)}
           onChange={this._handleChange}
           style={{
             display: 'flex',
@@ -46,8 +53,8 @@ class App extends React.PureComponent {
           }}
         >
           {
-            Array(14).fill(0).map((ele, index) => index).map(ele => (
-              <SelectableFoo uid={ele} key={ele} />
+            elements.map(ele => (
+              <SelectableFoo uid={ele.id} key={ele.id} />
             ))
           }
           <NonSelectable />

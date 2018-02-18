@@ -12,6 +12,7 @@ class SelectableGroup extends React.Component {
     children: PropTypes.node,
     onChange: PropTypes.func,
     selectedList: PropTypes.array,
+    uidList: PropTypes.array,
     Component: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
@@ -32,20 +33,6 @@ class SelectableGroup extends React.Component {
     }),
   }
 
-  constructor(props) {
-    super(props);
-
-    this._toggleClick = this._toggleClick.bind(this);
-    this._oneClick = this._oneClick.bind(this);
-    this._rangeSelect = this._rangeSelect.bind(this);
-
-    this.state = {
-      uidList: React.Children.map(props.children, child => (
-        child.props.uid
-      )),
-    };
-  }
-
   getChildContext() {
     return (
       {
@@ -58,17 +45,7 @@ class SelectableGroup extends React.Component {
     );
   }
 
-  componentWillReceiveProps(nextProps) {
-    const uidList = React.Children.map(nextProps.children, child => (
-      child.props.uid
-    ));
-
-    this.setState({
-      uidList,
-    });
-  }
-
-  _toggleClick(uid) {
+  _toggleClick = (uid) => {
     const selectedList = [...this.props.selectedList];
 
     const index = selectedList.indexOf(uid);
@@ -82,7 +59,7 @@ class SelectableGroup extends React.Component {
     this.props.onChange(selectedList);
   }
 
-  _oneClick(uid) {
+  _oneClick = (uid) => {
     let selectedList = [...this.props.selectedList];
 
     const index = selectedList.indexOf(uid);
@@ -99,11 +76,14 @@ class SelectableGroup extends React.Component {
     this.props.onChange(selectedList);
   }
 
-  _rangeSelect(uid) {
-    const selectedList = [...this.props.selectedList];
+  _rangeSelect = (uid) => {
+    const {
+      selectedList,
+      uidList,
+    } = this.props;
     if (selectedList.length === 0) return;
 
-    const allCompare = listCompare(this.state.uidList);
+    const allCompare = listCompare(uidList);
 
     this.props.onChange(allCompare(selectedList, uid));
   }
