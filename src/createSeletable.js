@@ -25,13 +25,7 @@ const createSeletable = (WrappedComponent) => {
       selected: false,
     }
 
-    constructor(props) {
-      super(props);
-
-      this._handleClick = this._handleClick.bind(this);
-    }
-
-    _handleClick(e) {
+    _handleClick = (e) => {
       const actions = this.context.actions;
 
       e.preventDefault();
