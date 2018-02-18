@@ -40,10 +40,13 @@ class App extends React.PureComponent {
   }
 
   render() {
+    const {
+      selectedList,
+    } = this.state;
     return (
       <Container>
         <SelectableGroup
-          selectedList={this.state.selectedList}
+          selectedList={selectedList}
           uidList={elements.map(e => e.id)}
           onChange={this._handleChange}
           style={{
@@ -54,7 +57,11 @@ class App extends React.PureComponent {
         >
           {
             elements.map(ele => (
-              <SelectableFoo uid={ele.id} key={ele.id} />
+              <SelectableFoo
+                key={ele.id}
+                uid={ele.id}
+                selected={selectedList.indexOf(ele.id) >= 0}
+              />
             ))
           }
           <NonSelectable />

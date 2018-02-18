@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import createSeletable from './createSeletable';
-
 import {
   listCompare,
 } from './utils';
@@ -90,33 +88,19 @@ class SelectableGroup extends React.Component {
 
 
   render() {
-    const { Component, children, selectedList, ...rest } = this.props;
-
-    const newChildren = React.Children.map(children, (child) => {
-      // check if child have selected in props
-      if (typeof child.type === 'function' && child.type.name === createSeletable().name) {
-        // clone a props and replace selected for new selectedList
-        const props = {
-          ...child.props,
-          selected: (selectedList.indexOf(child.props.uid) >= 0),
-        };
-
-        // clone a children
-        const { children: c } = child;
-
-        // clone a child
-        return React.createElement(child.type, props, c);
-      }
-
-      // if the child is not selectable, don't do anything
-      return child;
-    });
+    const {
+      Component,
+      children,
+      selectedList,
+      uidList,
+      ...rest
+    } = this.props;
 
     return (
       <Component
         {...rest}
       >
-        {newChildren}
+        {children}
       </Component>
     );
   }
