@@ -9,6 +9,7 @@
     "buildDemo": "NODE_ENV=production node script/buildDemo.js",
     "build": "rollup --config config/rollup.prod.config.js --environment NODE_ENV:production",
     "lint": "eslint ./",
+    "test": "jest --no-cache",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -20,10 +21,20 @@
   },
   "author": "Wendell Liu <cuk.bas@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/*.test.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/.yarn-cache/"
+    ]
+  },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -37,6 +48,7 @@
     "fs-extra": "^5.0.0",
     "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
+    "jest": "^22.3.0",
     "lint-staged": "^6.1.0",
     "prop-types": "^15.6.x",
     "react": "^16.2.x",
