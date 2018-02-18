@@ -77,12 +77,13 @@ class SelectableGroup extends React.Component {
     const {
       selectedList,
       uidList,
+      onChange,
     } = this.props;
     if (selectedList.length === 0) return null;
 
     const allCompare = listCompare(uidList);
 
-    return this.props.onChange(allCompare(selectedList, uid));
+    return onChange(allCompare(selectedList, uid));
   }
 
 
@@ -92,6 +93,7 @@ class SelectableGroup extends React.Component {
       children,
       selectedList,
       uidList,
+      onChange,
       ...rest
     } = this.props;
 
