@@ -1,9 +1,9 @@
 {
   "name": "react-selectronic",
   "version": "1.0.0",
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
-  "browser": "dist/bundle.umd.js",
+  "main": "dist/react-selectronic.cjs.js",
+  "module": "dist/react-selectronic.esm.js",
+  "browser": "dist/react-selectronic.umd.js",
   "scripts": {
     "start": "node script/develop.js",
     "buildDemo": "NODE_ENV=production node script/buildDemo.js",
