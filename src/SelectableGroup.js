@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {
   listCompare,
+  removeElement,
 } from './utils';
 
 class SelectableGroup extends React.Component {
@@ -44,34 +45,32 @@ class SelectableGroup extends React.Component {
   }
 
   _toggleClick = (uid) => {
-    const selectedList = [...this.props.selectedList];
+    const {
+      selectedList: prevSelectedList,
+      onChange,
+    } = this.props;
 
-    const index = selectedList.indexOf(uid);
+    const index = prevSelectedList.indexOf(uid);
 
-    if (index < 0) {
-      selectedList.push(uid);
-    } else {
-      selectedList.splice(index, 1);
-    }
+    const selectedList = index < 0 ?
+      prevSelectedList.concat([uid]) :
+      removeElement(index)(prevSelectedList);
 
-    this.props.onChange(selectedList);
+    onChange(selectedList);
   }
 
   _oneClick = (uid) => {
-    let selectedList = [...this.props.selectedList];
+    const {
+      selectedList: prevSelectedList,
+      onChange,
+    } = this.props;
 
-    const index = selectedList.indexOf(uid);
+    const index = prevSelectedList.indexOf(uid);
 
-    // more one element were selected
-    if (selectedList.length > 1) {
-      selectedList = [uid];
-    } else if (index < 0) {
-      selectedList = [uid];
-    } else {
-      selectedList.splice(index, 1);
-    }
+    const isSelected = prevSelectedList.length > 1 || index < 0;
+    const selectedList = isSelected ? [uid] : removeElement(index)(prevSelectedList);
 
-    this.props.onChange(selectedList);
+    return onChange(selectedList);
   }
 
   _rangeSelect = (uid) => {
@@ -79,11 +78,11 @@ class SelectableGroup extends React.Component {
       selectedList,
       uidList,
     } = this.props;
-    if (selectedList.length === 0) return;
+    if (selectedList.length === 0) return null;
 
     const allCompare = listCompare(uidList);
 
-    this.props.onChange(allCompare(selectedList, uid));
+    return this.props.onChange(allCompare(selectedList, uid));
   }
 
 

@@ -25,3 +25,7 @@ export const listCompare = (parentList) => {
     return parentList.slice(startIndex, endIndex);
   };
 };
+
+
+export const removeElement = index => array =>
+  array.slice(0, index).concat(array.slice(index + 1));
