@@ -21,10 +21,6 @@ const createSeletable = (WrappedComponent) => {
       onClick: PropTypes.func,
     }
 
-    static defaultProps = {
-      selected: false,
-    }
-
     _handleClick = (e) => {
       const actions = this.context.actions;
 
