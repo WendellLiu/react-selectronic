@@ -10,3 +10,11 @@ rollup*
 .babelrc
 yarn-error.log
 public
+.yarn-cache
+.circleci
+config
+demo
+script
+static
+test
+package-lock.json
