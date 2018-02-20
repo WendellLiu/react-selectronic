@@ -25,22 +25,33 @@ const Foo = ({ selected, id, onClick }) => (
     onClick={onClick}
   >
   </div>
-)
+);
 
-const SelectableFoo = createSeletable(Foo)
+const SelectableFoo = createSeletable(Foo);
+const elements = [1, 2, 3, 4, 5, 6, 7];
 
-<SelectableGroup
-  selectedList={this.state.selectedList}
-  onChange={this._handleChange}
-  className="container"
->
-  {
-    Array(14).fill(0).map((ele, index) => index).map((ele) => (
-      <SelectableFoo uid={ele} key={ele} /> // uid is a must-given property!
-    ))
+class App extends React.Component {
+  this.state = {
+    selectedList: [],
+  };
+
+  render() {
+    return (
+      <SelectableGroup
+        selectedList={this.state.selectedList}
+        onChange={this.handleChange}
+        uidList={elements}
+      >
+        {
+          elements.map((ele) => (
+            <SelectableFoo uid={ele} key={ele} /> // uid is required
+          ))
+        }
+        <div className="nonSelectable" /> // you can insert any component not selectable
+      </SelectableGroup>
+    );
   }
-  <div className="nonSelectable" /> // you can insert any component not selectable
-</SelectableGroup>
+}
 
 ```
 
