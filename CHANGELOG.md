@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.0
 * uidList is given via props
 * inject `selected` via props by developer
 
