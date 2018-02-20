@@ -6,8 +6,10 @@
   "browser": "dist/react-selectronic.umd.js",
   "scripts": {
     "start": "node script/develop.js",
-    "buildDemo": "NODE_ENV=production node script/buildDemo.js",
     "build": "rollup --config config/rollup.prod.config.js --environment NODE_ENV:production",
+    "build-demo": "NODE_ENV=production node script/buildDemo.js",
+    "publish-demo": "yarn build-demo && node script/publishGhpage.js",
+    "deploy": "gh-pages -d static",
     "lint": "eslint ./",
     "test": "jest --no-cache",
     "precommit": "lint-staged"
