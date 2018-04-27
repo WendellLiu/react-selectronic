@@ -6,7 +6,7 @@
 inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](https://github.com/unclecheese/react-selectable)
 
 ## Feature
-1. not support __group selection with mouse drag__
+1. not support __group-selection with mouse dragging__
 2. support group selection with __shift key__
 3. support multiple selection with __ctrl key and cmd  key__
 
