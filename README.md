@@ -59,14 +59,14 @@ class App extends React.Component {
 
 ### SelectableGroup
 #### Description
-group component, click functions provider which handling the selecting strategy
+grouping component, clicking function provider which handling the selecting strategy
 
 ### CreateSeletable
 #### Description
-an HOC to wrap `onClick` for the usage
+an HOC to wrap `onClick`
 
 **Caution:**
-the wrapped component(like Foo above) **must** take `onClick` property to make select-function work.
+the wrapped component(as Foo above) **must** take `onClick` property to make selection-function work.
 
 ## Development
 ```sh
