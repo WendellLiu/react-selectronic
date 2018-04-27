@@ -4,7 +4,7 @@ ghpages.publish(
   'static',
   {
     message: 'update demo page',
-    push: false,
+    push: true,
   },
   (error) => {
     console.log('finish');
