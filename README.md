@@ -18,7 +18,7 @@ yarn add react-selectronic
 or
 
 ```sh
-npm install react-selectronic
+npm install --save react-selectronic
 ```
 
 ## Example
