@@ -10,6 +10,17 @@ inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](htt
 3. support multiple selection with __ctrl key and cmd  key__
 1. not support __group-selection with mouse dragging__
 
+## Install
+```sh
+yarn add react-selectronic
+```
+
+or
+
+```sh
+npm install react-selectronic
+```
+
 ## Example
 
 ```js
