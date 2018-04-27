@@ -22,18 +22,12 @@ const elements = Array(24).fill(0).map((_, index) => (
 ));
 
 
-class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
+class App extends React.Component {
+  state = {
+    selectedList: [],
+  };
 
-    this._handleChange = this._handleChange.bind(this);
-
-    this.state = {
-      selectedList: [],
-    };
-  }
-
-  _handleChange(selectedList) {
+  _handleChange = (selectedList) => {
     this.setState({
       selectedList,
     });
