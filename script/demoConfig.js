@@ -15,6 +15,7 @@ const inputOptions = {
   plugins: [
     babel({
       exclude: ['node_modules/**'],
+      plugins: ['external-helpers'],
     }),
     resolve({
       jsnext: true,
