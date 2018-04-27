@@ -5,7 +5,7 @@ import {
   SelectableGroup,
 } from '../src';
 
-import Foo from './Foo';
+import Block from './Block';
 
 import {
   Container,
@@ -13,9 +13,9 @@ import {
   Result,
 } from './components';
 
-const SelectableFoo = createSeletable(Foo);
+const SelectableBlock = createSeletable(Block);
 
-const elements = Array(14).fill(0).map((_, index) => (
+const elements = Array(24).fill(0).map((_, index) => (
   {
     id: index,
   }
@@ -45,28 +45,30 @@ class App extends React.PureComponent {
     } = this.state;
     return (
       <Container>
-        <SelectableGroup
-          selectedList={selectedList}
-          uidList={elements.map(e => e.id)}
-          onChange={this._handleChange}
-          style={{
-            display: 'flex',
-            width: '800px',
-            flexWrap: 'wrap',
-          }}
-        >
-          {
-            elements.map(ele => (
-              <SelectableFoo
-                key={ele.id}
-                uid={ele.id}
-                selected={selectedList.indexOf(ele.id) >= 0}
-              />
-            ))
-          }
-          <NonSelectable />
-          <NonSelectable />
-        </SelectableGroup>
+        <div>
+          <SelectableGroup
+            selectedList={selectedList}
+            uidList={elements.map(e => e.id)}
+            onChange={this._handleChange}
+            style={{
+              display: 'flex',
+              width: '800px',
+              flexWrap: 'wrap',
+            }}
+          >
+            {
+              elements.map(ele => (
+                <SelectableBlock
+                  key={ele.id}
+                  uid={ele.id}
+                  selected={selectedList.indexOf(ele.id) >= 0}
+                />
+              ))
+            }
+            <NonSelectable />
+            <NonSelectable />
+          </SelectableGroup>
+        </div>
         <Result>
           <div>selected: </div>
           <ul>

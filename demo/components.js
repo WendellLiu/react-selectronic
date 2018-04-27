@@ -2,11 +2,13 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Element = styled.div`
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
