@@ -6,9 +6,9 @@
 inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](https://github.com/unclecheese/react-selectable)
 
 ## Usage
-2. support group selection with __shift key__
-3. support multiple selection with __ctrl key and cmd  key__
-1. not support __group-selection with mouse dragging__
+2. support group selection with the __shift key__
+3. support multiple selection with the __ctrl key__ and the __cmd  key__
+1. not support __group-selection with dragging__
 
 ## Install
 ```sh
@@ -55,7 +55,7 @@ class App extends React.Component {
       >
         {
           elements.map((ele) => (
-            <SelectableFoo uid={ele} key={ele} /> // uid is required
+            <SelectableFoo key={ele} uid={ele} /> // uid is required
           ))
         }
         <div className="nonSelectable" /> // you can insert any component not selectable
@@ -70,14 +70,14 @@ class App extends React.Component {
 
 ### SelectableGroup
 #### Description
-grouping component, clicking function provider which handling the selecting strategy
+click function provider which handling the selecting strategy
 
 ### CreateSeletable
 #### Description
 an HOC to wrap `onClick`
 
 **Caution:**
-the wrapped component(as Foo above) **must** take `onClick` property to make selection-function work.
+wrapped component(as Foo above) **must** be taken `onClick` property for selection-function.
 
 ## Development
 ```sh
