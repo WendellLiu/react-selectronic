@@ -1,5 +1,6 @@
 import {
   listCompare,
+  removeElement,
 } from './utils';
 
 describe('listCompare functional testing', () => {
@@ -54,3 +55,23 @@ describe('listCompare error handling', () => {
     }).toThrow();
   });
 });
+
+describe('removeElement function', () => {
+  const data = [5, 6, 1, 8, 2];
+  test('remove a element', () => {
+    expect(removeElement(1)(data)).toEqual([5, 1, 8, 2]);
+  });
+
+  test('remove first element', () => {
+    expect(removeElement(0)(data)).toEqual([6, 1, 8, 2]);
+  });
+
+  test('remove last element', () => {
+    expect(removeElement(4)(data)).toEqual([5, 6, 1, 8]);
+  });
+
+  test('remove element from index not existing in array', () => {
+    expect(removeElement(9)(data)).toEqual([5, 6, 1, 8, 2]);
+  });
+});
+
