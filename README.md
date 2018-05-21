@@ -6,9 +6,9 @@
 inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](https://github.com/unclecheese/react-selectable)
 
 ## Usage
-2. support group selection with the __shift key__
-3. support multiple selection with the __ctrl key__ and the __cmd  key__
-1. not support __group-selection with dragging__
+1. support group selection with the __shift key__
+2. support multiple selection with the __ctrl key__ and the __cmd  key__
+3. not support __group-selection with dragging__
 
 ## Install
 ```sh
