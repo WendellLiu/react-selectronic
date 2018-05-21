@@ -58,7 +58,6 @@ class App extends React.Component {
             <SelectableFoo 
               key={ele} 
               uid={ele} // uid is required
-              onClick={() => console.log(ele)}
             /> 
           ))
         }
@@ -78,12 +77,12 @@ Click functions provider which handling the selecting strategy
 
 #### Props
 
-prop             | type     | default      | notes
------------------|----------|--------------|----------
-selectedList     | Array<*>   |     []     | Selected list
-onChange         | SelectedList => void  |           | Handle next seelctedList 
-uidList          | Array<*>   |            | All uid(including non-selected) of data
-Component          | Component   | 'div'   | Component of SelectableGroup
+prop             | type     | default      | required | notes
+-----------------|----------|--------------|----------|------
+selectedList     | Array<*>   |     `[]`   |     v    |    Selected list
+onChange         | SelectedList => void  | |     v    | Handle next seelctedList 
+uidList          | Array<*>   |            |     v    | All uid(including non-selected) of data
+Component          | Component   | `'div'` |          | Component of SelectableGroup
 
 
 ### CreateSeletable
@@ -92,11 +91,11 @@ An HOC to wrap `onClick`
 
 #### Props
 
-prop             | type     | default      | notes
------------------|----------|--------------|----------
-uid              | *        |              | Unique id of the element
-selected         | boolean  |              | Whether element is selected
-onClick          | event => any |          | Additional click callback 
+prop             | type     | default    |   required  | notes
+-----------------|----------|------------|-------------|---------
+uid              | *        |            |     v       | Unique id of the element
+selected         | boolean  |            |     v       | Whether element is selected
+onClick          | event => any |        |             | Additional click callback 
 
 **Caution:**
 wrapped component(as Foo above) **must** be taken `onClick` property for selection-function.

@@ -13,9 +13,9 @@ import {
 class SelectableGroup extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    onChange: PropTypes.func,
-    selectedList: PropTypes.array,
-    uidList: PropTypes.array,
+    onChange: PropTypes.func.isRequired,
+    selectedList: PropTypes.array.isRequired,
+    uidList: PropTypes.array.isRequired,
     Component: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
