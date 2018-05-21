@@ -55,7 +55,11 @@ class App extends React.Component {
       >
         {
           elements.map((ele) => (
-            <SelectableFoo key={ele} uid={ele} /> // uid is required
+            <SelectableFoo 
+              key={ele} 
+              uid={ele} // uid is required
+              onClick={() => console.log(ele)}
+            /> 
           ))
         }
         <div className="nonSelectable" /> // you can insert any component not selectable
@@ -72,9 +76,27 @@ class App extends React.Component {
 #### Description
 Click functions provider which handling the selecting strategy
 
+#### Props
+
+prop             | type     | default      | notes
+-----------------|----------|--------------|----------
+selectedList     | Array<*>   |     []     | Selected list
+onChange         | SelectedList => void  |           | Handle next seelctedList 
+uidList          | Array<*>   |            | All uid(including non-selected) of data
+Component          | Component   | 'div'   | Component of SelectableGroup
+
+
 ### CreateSeletable
 #### Description
 An HOC to wrap `onClick`
+
+#### Props
+
+prop             | type     | default      | notes
+-----------------|----------|--------------|----------
+uid              | *        |              | Unique id of the element
+selected         | boolean  |              | Whether element is selected
+onClick          | event => any |          | Additional click callback 
 
 **Caution:**
 wrapped component(as Foo above) **must** be taken `onClick` property for selection-function.
