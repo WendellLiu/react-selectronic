@@ -1,7 +1,9 @@
 import SelectableGroup from './SelectableGroup';
-import createSeletable from './createSeletable';
+import createSelectable from './createSelectable';
 
 export {
   SelectableGroup,
-  createSeletable,
+  // FIXME remove this in v3
+  createSelectable as createSeletable,
+  createSelectable,
 };

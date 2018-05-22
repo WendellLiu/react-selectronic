@@ -6,7 +6,7 @@ import {
 } from './constants';
 
 // High Order Component
-const createSeletable = (WrappedComponent) => {
+const createSelectable = (WrappedComponent) => {
   class SelectableComponent extends React.PureComponent {
     static contextTypes = {
       [ACTION_NAME]: PropTypes.shape({
@@ -65,4 +65,4 @@ const createSeletable = (WrappedComponent) => {
   return SelectableComponent;
 };
 
-export default createSeletable;
+export default createSelectable;
