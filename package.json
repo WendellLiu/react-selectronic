@@ -1,6 +1,6 @@
 {
   "name": "react-selectronic",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/react-selectronic.cjs.js",
   "module": "dist/react-selectronic.esm.js",
   "browser": "dist/react-selectronic.umd.js",
