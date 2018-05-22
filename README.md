@@ -7,7 +7,7 @@ inspired by [unclecheese](https://github.com/unclecheese)/[react-selectable](htt
 
 ## Usage
 1. support group selection with the __shift key__
-2. support multiple selection with the __ctrl key__ and the __cmd  key__
+2. support multiple selection with the __ctrl key(Windows OS)__ and the __cmd  key(Mac OS)__
 3. not support __group-selection with dragging__
 
 ## Install
@@ -27,7 +27,7 @@ npm install --save react-selectronic
 import React from 'react';
 import {
   SelectableGroup,
-  CreateSeletable
+  createSelectable
 } from 'react-selectronic';
 
 const Foo = ({ selected, id, onClick }) => (
@@ -38,7 +38,7 @@ const Foo = ({ selected, id, onClick }) => (
   </div>
 );
 
-const SelectableFoo = createSeletable(Foo);
+const SelectableFoo = createSelectable(Foo);
 const elements = [1, 2, 3, 4, 5, 6, 7];
 
 class App extends React.Component {
@@ -85,7 +85,7 @@ uidList          | Array<*>   |            |     v    | All uid(including non-se
 Component          | Component   | `'div'` |          | Component of SelectableGroup
 
 
-### CreateSeletable
+### createSelectable
 #### Description
 An HOC to wrap `onClick`
 
